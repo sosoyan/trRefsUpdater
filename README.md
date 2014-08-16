@@ -6,10 +6,11 @@ This module helps to iterate through all referenced files in the current maya sc
 
 ###Usage
 
-It can be used in maya as a custom python api callback as well as seperate command.
+It can be used in maya as custom python callback as well as seperate command.
 
-1. You can activate custom maya callback through your userSetup.py which enables you to get interactive notifications after every time you open maya scene
+1. You can activate custom maya callback through your userSetup.py which enables you to get interactive notifications after every time you open maya scene.
 
-Just add this lines to your
+Just add userSetup.py and trRefsUpdater to your maya scripts directory.
+
 2. 
 ====
