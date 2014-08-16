@@ -23,8 +23,11 @@ utils.executeDeferred('trRefsUpdater.refsUpdaterCallback()')
 trRefsUpdater.refsUpdater()
 ```
 
-sdsd
+by default it watches for only if loaded and top referenced files but if want to iterate through all files use arguments.
 
+```bash
+refsUpdater(il=0,tr=0)
+```
 
 
 ====
