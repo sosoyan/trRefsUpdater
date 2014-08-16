@@ -19,7 +19,6 @@ import trRefsUpdater
 
 utils.executeDeferred('trRefsUpdater.refsUpdaterCallback()')
 ```
-===
 
 2.To use as seperate command use refsUpdater() function.
 
@@ -32,6 +31,6 @@ You can use custom flags il(if loaded) and tr(top reference) to fit in your pipe
 refsUpdater([il=boolean],[tr=boolean])
 ```
 
-by default they both are True
+by default both flags are True
 
 ====
