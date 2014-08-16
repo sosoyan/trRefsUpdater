@@ -25,12 +25,12 @@ utils.executeDeferred('trRefsUpdater.refsUpdaterCallback()')
 ```bash
 trRefsUpdater.refsUpdater()
 ```
-Also it can be used with custom flags il(if loaded) and tr(top reference) to fit in your pipeline
+it can be used with custom flags il (if loaded) and tr (top reference) to fit in your pipeline.
 
 ```bash
 refsUpdater([il=boolean],[tr=boolean])
 ```
 
-by default both flags are True
+by default both flags are True.
 
 ====
