@@ -19,6 +19,12 @@ utils.executeDeferred('trRefsUpdater.refsUpdaterCallback()')
 
 2. To use as seperate command use refsUpdater() function.
 
-```trRefsUpdater.refsUpdater()```
+```bash
+trRefsUpdater.refsUpdater()
+```
+
+sdsd
+
+
 
 ====
