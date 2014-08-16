@@ -1,6 +1,10 @@
-
-
 ###trRefsUpdater
+Copyright 2014, Triada Studio
+by Vahan Sosoyan sosoyan@gmai.com
+
+
+
+===
 
 This module helps to iterate through all referenced files in the current maya scene, check for updates and replace with the new version
 
@@ -16,7 +20,7 @@ import trRefsUpdater
 
 utils.executeDeferred('trRefsUpdater.refsUpdaterCallback()')
 ```
-
+===
 
 2.To use as seperate command use refsUpdater() function.
 
@@ -30,8 +34,5 @@ refsUpdater([il=boolean],[tr=boolean])
 ```
 
 by default they both are True
-
-
-
 
 ====
