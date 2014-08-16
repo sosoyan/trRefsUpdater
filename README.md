@@ -23,12 +23,11 @@ To use as seperate command use refsUpdater() function.
 ```bash
 trRefsUpdater.refsUpdater()
 ```
-
-by default it watches for only if loaded and top referenced files but if want to iterate through all files use arguments.
+You can use custom flags il(if loaded) and tr(top reference) to customize it in your pipeline
 
 ```bash
-refsUpdater(il=0,tr=0)
+refsUpdater([il=boolean],[tr=boolean])
 ```
 
-
+by default they both are True
 ====
