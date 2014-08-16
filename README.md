@@ -20,12 +20,12 @@ import trRefsUpdater
 utils.executeDeferred('trRefsUpdater.refsUpdaterCallback()')
 ```
 
-2.To use as seperate command use refsUpdater() function.
+2.To use as seperate command see refsUpdater() function.
 
 ```bash
 trRefsUpdater.refsUpdater()
 ```
-You can use custom flags il(if loaded) and tr(top reference) to fit in your pipeline
+Also it can be used with custom flags il(if loaded) and tr(top reference) to fit in your pipeline
 
 ```bash
 refsUpdater([il=boolean],[tr=boolean])
