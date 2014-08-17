@@ -24,11 +24,13 @@ utils.executeDeferred('trRefsUpdater.refsUpdaterCallback()')
 
 ###Usage
 
-Basicly it checks for new filename versions of referenced files, after every time you open maya scene and if founds one, will porpose to update them.
+It checks for new filename versions of referenced files, after every time you open maya scene and if founds one, will porpose to update them.
 
 Also can be used as seperate command.
 
 ```bash
+import trRefsUpdater
+
 trRefsUpdater.refsUpdater()
 ```
 Custom `il` (if loaded) and `tr` (top reference) flags are available to make it fit in your pipeline.
