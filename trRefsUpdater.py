@@ -142,7 +142,7 @@ def refsUpdater(**kwargs):
                 else:
                     pass
             else:
-                sys.stdout.write("// Info: All assets are successfully updated.")
+                sys.stdout.write("// Info: All assets are updated.")
         else:
             sys.stdout.write("// Info: There are no any asset references in the current scene.")
     mainRefsUpdater()
