@@ -40,5 +40,3 @@ refsUpdater([il=boolean],[tr=boolean])
 ```
 
 **NOTE:** by default both flags are True.
-
-====
