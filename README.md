@@ -39,4 +39,4 @@ Custom `il` ( if loaded ) and `tr` ( top reference ) flags are available to make
 refsUpdater([il=boolean],[tr=boolean])
 ```
 
-**NOTE:** by default both flags are True.
+**NOTE:** By default both flags are True.
