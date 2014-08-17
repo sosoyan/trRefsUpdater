@@ -24,7 +24,7 @@ utils.executeDeferred('trRefsUpdater.refsUpdaterCallback()')
 
 ###Usage
 
-It checks for new filename versions of referenced files, after every time you open maya scene and if founds one, will porpose to update them.
+After every time you open maya scene, it checks for new filename versions of referenced files and if founds one, will porpose to update them.
 
 Also can be used as seperate command.
 
