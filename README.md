@@ -5,13 +5,15 @@ by Vahan Sosoyan sosoyan@gmail.com
 
 ===
 
-This module helps to iterate through all referenced files in the current maya scene, check for updates and replace with the new version
+This module helps to iterate through all referenced files in the current maya scene, check for updates and replace with the new versions.
 
-###Usage
+![](https://dl.dropboxusercontent.com/u/11663164/shared/trRefsUpdater_Demo.gif)
 
-It can be used in maya as custom python callback as well as seperate command.
+===
 
-1.To activate custom maya callback which enables interactive notifications after every time you open maya scene, just add trRefsUpdater.py and userSetup.py to your maya scripts directory, or if you already have userSetup.py, add this lines above.
+###Installation
+
+Just clone trRefsUpdater.py and userSetup.py to your maya scripts directory, or if you already have userSetup.py, then add this lines above.
 
 ```bash
 import maya.utils as utils
@@ -19,6 +21,10 @@ import trRefsUpdater
 
 utils.executeDeferred('trRefsUpdater.refsUpdaterCallback()')
 ```
+
+###Usage
+
+It checks for new versions* of reference files after every time you open maya scenes. If 
 
 2.To use as seperate command see refsUpdater() function.
 
