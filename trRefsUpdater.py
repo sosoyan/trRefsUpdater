@@ -30,16 +30,15 @@ def refCheckUpdateDialog(newVersionsList):
     for i in newVersionsNumsList:
         refAssetsString += "%s\n"%i
 
-    return cmds.confirmDialog( title="Check for Updates",
-                               message="%s new versions of asset references has been found\n\n%s\n\
-                               Note: It's recommended to up version your scene \
-                               after updating your assets!"%(newVersionsCount,refAssetsString),
-                               button=["Update by one","Update All","Skip by one", "Cancel"],
-                               defaultButton="Update",
-                               cancelButton="Cancel",
-                               dismissString="Cancel",
-                               icn="information"
-                               )
+    return cmds.confirmDialog(title="Check for Updates",
+                              message="%s new versions of asset references has been found\n\n%s\n\
+                              Note: It's recommended to up version your scene \
+                              after updating your assets!"%(newVersionsCount,refAssetsString),
+                              button=["Update by one","Update All","Skip by one", "Cancel"],
+                              defaultButton="Update",
+                              cancelButton="Cancel",
+                              dismissString="Cancel",
+                              icn="information")
 
 def refsUpdateChecker(ifLoaded,topRef):
     def uniq(input):
