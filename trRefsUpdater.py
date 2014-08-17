@@ -1,4 +1,8 @@
-"""This module helps to iterate through all referenced files in the current maya scene, check for updates and replace with the new version"""
+"""
+This module helps to iterate through 
+all referenced files in the current maya scene,
+check for updates and replace with the new version
+"""
 
 __author__ = "Vahan Sosoyan"
 __copyright__ = "Copyright 2014, Triada Studio"
@@ -27,7 +31,9 @@ def refCheckUpdateDialog(newVersionsList):
         refAssetsString += "%s\n"%i
 
     return cmds.confirmDialog( title="Check for Updates",
-                               message="%s new versions of asset references has been found\n\n%s\nNote: It's recommended to up version your scene after updating your assets!"%(newVersionsCount,refAssetsString),
+                               message="%s new versions of asset references has been found\n\n%s\n\
+                               Note: It's recommended to up version your scene \
+                               after updating your assets!"%(newVersionsCount,refAssetsString),
                                button=["Update by one","Update All","Skip by one", "Cancel"],
                                defaultButton="Update",
                                cancelButton="Cancel",
