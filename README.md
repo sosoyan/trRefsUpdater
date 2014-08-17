@@ -24,7 +24,7 @@ utils.executeDeferred('trRefsUpdater.refsUpdaterCallback()')
 
 ###Usage
 
-As soon, as you open Maya scene, the callback script will automatically check for new filename versions of all  reference objects in the scene and in case there are any in place, will offer to update them.
+As soon, as you open Maya scene, the callback script will automatically check for new filename versions for all  reference objects in the scene and in case there are any in place, will offer to update them.
 
 Also can be used as seperate command.
 
