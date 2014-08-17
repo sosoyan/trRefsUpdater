@@ -31,6 +31,7 @@ it can be used with custom flags `il` (if loaded) and `tr` (top reference) to fi
 refsUpdater([il=boolean],[tr=boolean])
 ```
 
+**NOTE** 
 by default both flags are True.
 
 ====
