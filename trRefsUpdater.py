@@ -32,7 +32,7 @@ def refCheckUpdateDialog(newVersionsList):
 
     return cmds.confirmDialog(title="Check for Updates",
                               message="%s new versions of asset references has been found\n\n%s\n\
-Note: It's recommended to up version your scene \after updating your assets!"%(newVersionsCount,refAssetsString),
+Note: It's recommended to up version your scene after updating your assets!"%(newVersionsCount,refAssetsString),
                               button=["Update by one","Update All","Skip by one", "Cancel"],
                               defaultButton="Update",
                               cancelButton="Cancel",
