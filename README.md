@@ -13,7 +13,7 @@ This module helps to iterate through all referenced files in the current maya sc
 
 ###Installation
 
-Just clone trRefsUpdater.py and userSetup.py to your maya scripts directory, or if you already have userSetup.py, then add this lines above.
+Clone this repo into your maya scripts directory, or if you already have userSetup.py, then add this lines above.
 
 ```bash
 import maya.utils as utils
