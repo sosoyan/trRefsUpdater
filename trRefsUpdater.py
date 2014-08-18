@@ -17,6 +17,7 @@ import maya.OpenMaya as api
 def refCheckUpdateDialog(newVersionsList):
     newVersionsCount = len(newVersionsList)
     refAssetsString = ""
+    note = "Note: It's recommended to up version your scene after updating your assets!"
     newVersionsNums= []
 
     for i in newVersionsList:
@@ -31,8 +32,13 @@ def refCheckUpdateDialog(newVersionsList):
         refAssetsString += "%s\n"%i
 
     return cmds.confirmDialog(title="Check for Updates",
+<<<<<<< HEAD
+                              message="%s new versions of asset references has been found\n\n%s\n%s"
+                              %(newVersionsCount,refAssetsString,note),
+=======
                               message="%s new versions of asset references has been found\n\n%s\n\
 Note: It's recommended to up version your scene after updating your assets!"%(newVersionsCount,refAssetsString),
+>>>>>>> FETCH_HEAD
                               button=["Update by one","Update All","Skip by one", "Cancel"],
                               defaultButton="Update",
                               cancelButton="Cancel",
