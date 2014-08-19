@@ -134,32 +134,34 @@ def refsUpdater(**kwargs):
             if len(refsUpdateCheckerOutput[1]) > 0:
                 refCheckUpdateDialogAnswer = refCheckUpdateDialog(refsUpdateCheckerOutput[1])
                 if refCheckUpdateDialogAnswer == "Update by one":
-                        cmds.file(refsUpdateCheckerOutput[1][0],lr=refsUpdateCheckerOutput[0][0])
-                        updateList.append(refsUpdateCheckerOutput[0][0])
-                        del refsUpdateCheckerOutput[0][0]
-                        del refsUpdateCheckerOutput[1][0]
-                        mainRefsUpdater()
+                    cmds.file(refsUpdateCheckerOutput[1][0],lr=refsUpdateCheckerOutput[0][0])
+                    updateList.append(refsUpdateCheckerOutput[0][0])
+                    del refsUpdateCheckerOutput[0][0]
+                    del refsUpdateCheckerOutput[1][0]
+                    mainRefsUpdater()
                 elif refCheckUpdateDialogAnswer == "Update All":
-                        for i in refsUpdateCheckerOutput[0]:
-                            updateList.append(i)
-                        for i,k in zip(refsUpdateCheckerOutput[0],refsUpdateCheckerOutput[1]):
-                            cmds.file(k,lr=i)
-                        if len(skipList) == 0:
-                            sys.stdout.write("// Info: %s updated."%(", ".join(updateList)))
-                        else:
-                            sys.stdout.write("// Info: %s updated | %s skipped."%((", ".join(updateList)),(", ".join(skipList))))
+                    for i in refsUpdateCheckerOutput[0]:
+                        updateList.append(i)
+                    for i,k in zip(refsUpdateCheckerOutput[0],refsUpdateCheckerOutput[1]):
+                        cmds.file(k,lr=i)
+                    if len(skipList) == 0:
+                        sys.stdout.write("// Info: %s updated."%(", ".join(updateList)))
+                    else:
+                        sys.stdout.write("// Info: %s updated | %s skipped."
+                        %((", ".join(updateList)),(", ".join(skipList))))
                 elif refCheckUpdateDialogAnswer == "Skip by one":
-                        skipList.append(refsUpdateCheckerOutput[0][0])
-                        del refsUpdateCheckerOutput[0][0]
-                        del refsUpdateCheckerOutput[1][0]
-                        mainRefsUpdater()
+                    skipList.append(refsUpdateCheckerOutput[0][0])
+                    del refsUpdateCheckerOutput[0][0]
+                    del refsUpdateCheckerOutput[1][0]
+                    mainRefsUpdater()
                 elif refCheckUpdateDialogAnswer == "Cancel":
-                        for i in refsUpdateCheckerOutput[0]:
-                            skipList.append(i)
-                        if len(updateList) == 0:
-                            sys.stdout.write("// Info: %s skipped."%(", ".join(skipList)))
-                        else:
-                            sys.stdout.write("// Info: %s updated | %s skipped."%((", ".join(updateList)),(", ".join(skipList))))
+                    for i in refsUpdateCheckerOutput[0]:
+                        skipList.append(i)
+                    if len(updateList) == 0:
+                        sys.stdout.write("// Info: %s skipped."%(", ".join(skipList)))
+                    else:
+                        sys.stdout.write("// Info: %s updated | %s skipped."
+                        %((", ".join(updateList)),(", ".join(skipList))))
             else:
                 if len(updateList)>0 or len(skipList)>0:
                     if len(updateList) == 0:
@@ -167,7 +169,8 @@ def refsUpdater(**kwargs):
                     elif len(skipList) == 0:
                             sys.stdout.write("// Info: %s updated."%(", ".join(updateList)))
                     else:
-                        sys.stdout.write("// Info: %s updated | %s skipped."%((", ".join(updateList)),(", ".join(skipList))))
+                        sys.stdout.write("// Info: %s updated | %s skipped."
+                        %((", ".join(updateList)),(", ".join(skipList))))
                 else:
                     sys.stdout.write("// Info: Assets are up to date.")
         else:
