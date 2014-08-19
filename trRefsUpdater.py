@@ -174,7 +174,7 @@ def refsUpdater(**kwargs):
                 else:
                     sys.stdout.write("// Info: Assets are up to date.")
         else:
-            sys.stdout.write("// Info: There are no any asset references in the current scene.")
+            cmds.warning("There are no any referenced assets in the current scene.")
     mainRefsUpdater()
 
 def refsUpdaterExe(self):
