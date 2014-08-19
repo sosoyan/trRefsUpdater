@@ -125,11 +125,12 @@ def refsUpdateChecker(ifLoaded,topRef):
 
 def refsUpdater(**kwargs):
     ifLoaded = kwargs.setdefault("il",1)
-    topRef = kwargs.setdefault("tr",1)  
+    topRef = kwargs.setdefault("tr",1)
+    callBack = kwargs.setdefault("cb",0)
     refsUpdateCheckerOutput = refsUpdateChecker(ifLoaded,topRef)
     updateList = []
     skipList = []
-    def mainRefsUpdater():
+    def mainRefsUpdater(callBack):
         if len(refsUpdateCheckerOutput[2]) > 0:
             if len(refsUpdateCheckerOutput[1]) > 0:
                 refCheckUpdateDialogAnswer = refCheckUpdateDialog(refsUpdateCheckerOutput[1])
@@ -138,7 +139,7 @@ def refsUpdater(**kwargs):
                     updateList.append(refsUpdateCheckerOutput[0][0])
                     del refsUpdateCheckerOutput[0][0]
                     del refsUpdateCheckerOutput[1][0]
-                    mainRefsUpdater()
+                    mainRefsUpdater(callBack)
                 elif refCheckUpdateDialogAnswer == "Update All":
                     for i in refsUpdateCheckerOutput[0]:
                         updateList.append(i)
@@ -153,7 +154,7 @@ def refsUpdater(**kwargs):
                     skipList.append(refsUpdateCheckerOutput[0][0])
                     del refsUpdateCheckerOutput[0][0]
                     del refsUpdateCheckerOutput[1][0]
-                    mainRefsUpdater()
+                    mainRefsUpdater(callBack)
                 elif refCheckUpdateDialogAnswer == "Cancel":
                     for i in refsUpdateCheckerOutput[0]:
                         skipList.append(i)
@@ -172,13 +173,16 @@ def refsUpdater(**kwargs):
                         sys.stdout.write("// Info: %s updated | %s skipped."
                         %((", ".join(updateList)),(", ".join(skipList))))
                 else:
-                    sys.stdout.write("// Info: All assets are up to date.")
+                        sys.stdout.write("// Info: All assets are up to date.")
         else:
-            sys.stdout.write("// Info: There are no any referenced assets in the current scene.")
-    mainRefsUpdater()
+            if callBack == 0:
+            	sys.stdout.write("// Info: There are no any referenced assets in the current scene.")
+            else:
+            	pass
+    mainRefsUpdater(callBack)
 
 def refsUpdaterExe(self):
-    refsUpdater(il=1,tr=1)
+    refsUpdater(il=1,tr=1,cb=1)
 
 def refsUpdaterCallback():
     api.MSceneMessage.addCallback(api.MSceneMessage.kAfterOpen, refsUpdaterExe)
