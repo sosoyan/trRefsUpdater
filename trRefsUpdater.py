@@ -172,9 +172,9 @@ def refsUpdater(**kwargs):
                         sys.stdout.write("// Info: %s updated | %s skipped."
                         %((", ".join(updateList)),(", ".join(skipList))))
                 else:
-                    sys.stdout.write("// Info: Assets are up to date.")
+                    sys.stdout.write("// Info: All assets are up to date.")
         else:
-            cmds.warning("There are no any referenced assets in the current scene.")
+            sys.stdout.write("// Info: There are no any referenced assets in the current scene.")
     mainRefsUpdater()
 
 def refsUpdaterExe(self):
