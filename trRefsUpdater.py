@@ -177,8 +177,6 @@ def refsUpdater(**kwargs):
         else:
             if callBack == 0:
             	sys.stdout.write("// Info: There are no any referenced assets in the current scene.")
-            else:
-            	pass
     mainRefsUpdater(callBack)
 
 def refsUpdaterExe(self):
