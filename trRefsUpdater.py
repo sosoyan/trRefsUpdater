@@ -7,7 +7,7 @@ check for updates and replace with the new version.
 __author__ = "Vahan Sosoyan"
 __copyright__ = "Copyright 2014, Triada Studio"
 __license__ = "GPL"
-__version__ = "1.4"
+__version__ = "1.5"
 __email__ = "sosoyan@gmail.com"
 
 import maya.cmds as cmds
@@ -127,27 +127,49 @@ def refsUpdater(**kwargs):
     ifLoaded = kwargs.setdefault("il",1)
     topRef = kwargs.setdefault("tr",1)  
     refsUpdateCheckerOutput = refsUpdateChecker(ifLoaded,topRef)
-    
+    updateList = []
+    skipList = []
     def mainRefsUpdater():
         if len(refsUpdateCheckerOutput[2]) > 0:
             if len(refsUpdateCheckerOutput[1]) > 0:
                 refCheckUpdateDialogAnswer = refCheckUpdateDialog(refsUpdateCheckerOutput[1])
                 if refCheckUpdateDialogAnswer == "Update by one":
                         cmds.file(refsUpdateCheckerOutput[1][0],lr=refsUpdateCheckerOutput[0][0])
+                        updateList.append(refsUpdateCheckerOutput[0][0])
                         del refsUpdateCheckerOutput[0][0]
                         del refsUpdateCheckerOutput[1][0]
                         mainRefsUpdater()
                 elif refCheckUpdateDialogAnswer == "Update All":
+                        for i in refsUpdateCheckerOutput[0]:
+                            updateList.append(i)
                         for i,k in zip(refsUpdateCheckerOutput[0],refsUpdateCheckerOutput[1]):
                             cmds.file(k,lr=i)
-                elif refCheckUpdateDialogAnswer == "Skip by one": 
+                        if len(skipList) == 0:
+                            sys.stdout.write("// Info: %s updated."%(", ".join(updateList)))
+                        else:
+                            sys.stdout.write("// Info: %s updated | %s skipped."%((", ".join(updateList)),(", ".join(skipList))))
+                elif refCheckUpdateDialogAnswer == "Skip by one":
+                        skipList.append(refsUpdateCheckerOutput[0][0])
                         del refsUpdateCheckerOutput[0][0]
                         del refsUpdateCheckerOutput[1][0]
                         mainRefsUpdater()
-                else:
-                    pass
+                elif refCheckUpdateDialogAnswer == "Cancel":
+                        for i in refsUpdateCheckerOutput[0]:
+                            skipList.append(i)
+                        if len(updateList) == 0:
+                            sys.stdout.write("// Info: %s skipped."%(", ".join(skipList)))
+                        else:
+                            sys.stdout.write("// Info: %s updated | %s skipped."%((", ".join(updateList)),(", ".join(skipList))))
             else:
-                sys.stdout.write("// Info: Assets are updated.")
+                if len(updateList)>0 or len(skipList)>0:
+                    if len(updateList) == 0:
+                            sys.stdout.write("// Info: %s skipped."%(", ".join(skipList)))
+                    elif len(skipList) == 0:
+                            sys.stdout.write("// Info: %s updated."%(", ".join(updateList)))
+                    else:
+                        sys.stdout.write("// Info: %s updated | %s skipped."%((", ".join(updateList)),(", ".join(skipList))))
+                else:
+                    sys.stdout.write("// Info: Assets are up to date.")
         else:
             sys.stdout.write("// Info: There are no any asset references in the current scene.")
     mainRefsUpdater()
