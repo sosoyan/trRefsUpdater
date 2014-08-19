@@ -45,4 +45,4 @@ refsUpdater([il=boolean],[tr=boolean])
 
 #### 1.5
 
-- Added feedback info through script editor for updated or skipped assets
+- Added better feedback info through script editor for updated or skipped assets
