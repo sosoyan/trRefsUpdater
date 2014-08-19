@@ -40,3 +40,10 @@ refsUpdater([il=boolean],[tr=boolean])
 ```
 
 **NOTE:** By default both flags are True.
+
+###Release Notes
+
+#### 1.5
+
+- Added feedback info through script editor for updated or skipped assets
+####
