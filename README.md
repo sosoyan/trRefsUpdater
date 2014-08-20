@@ -46,7 +46,7 @@ refsUpdater([il=boolean],[tr=boolean])
 #### 1.6
 
 - Fixed issue with duplicated reference objects
-- Confirm dialog layout improvments
+- Layout improvment of confirm dialog
 
 #### 1.5
 
