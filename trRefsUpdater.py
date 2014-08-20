@@ -87,7 +87,7 @@ def refsUpdateChecker(ifLoaded,topRef):
     refFilePaths = []
 
     for i in refList:
-        refFilePaths.append(cmds.referenceQuery(i, f=1,wcn=1))
+        refFilePaths.append(cmds.referenceQuery(i, f=1, wcn=1))
 
     refFileVersionList = []
 
