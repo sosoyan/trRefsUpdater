@@ -43,6 +43,11 @@ refsUpdater([il=boolean],[tr=boolean])
 
 ###Release Notes
 
+#### 1.6
+
+- Fixed issue with duplicated reference objects
+- Confirm dialog layout improvments
+
 #### 1.5
 
 - Added better feedback status through script editor for updated or skipped assets
