@@ -14,20 +14,20 @@ import maya.cmds as cmds
 import os, glob, sys
 import maya.OpenMaya as api
 
-def refCheckUpdateDialog(newVersionsList):
+def refCheckUpdateDialog(newVersionsNames,newVersionsList):
+
     newVersionsCount = len(newVersionsList)
     refAssetsString = ""
     note = "Note: It's recommended to up version your scene after updating your assets!"
     newVersionsNums= []
 
-    for i in newVersionsList:
-        newVersionsNums.append(newVersionsList.index(i)+1)
+    for i in range(0,newVersionsCount):
+        newVersionsNums.append(i+1)
 
     newVersionsNumsList=[]
 
-    for i,k in zip(newVersionsNums,newVersionsList):
-        newVersionsNumsList.append(str(i)+"."+str(k))
-
+    for i,j,k in zip(newVersionsNums,newVersionsNames,newVersionsList):
+            newVersionsNumsList.append(str(i)+". "+str(j)+str(" update to")+"\n"+str(k)+"\n")
     for i in newVersionsNumsList:
         refAssetsString += "%s\n"%i
 
@@ -87,7 +87,7 @@ def refsUpdateChecker(ifLoaded,topRef):
     refFilePaths = []
 
     for i in refList:
-        refFilePaths.append(cmds.referenceQuery(i, f=1))
+        refFilePaths.append(cmds.referenceQuery(i, f=1,wcn=1))
 
     refFileVersionList = []
 
@@ -133,7 +133,7 @@ def refsUpdater(**kwargs):
     def mainRefsUpdater(callBack):
         if len(refsUpdateCheckerOutput[2]) > 0:
             if len(refsUpdateCheckerOutput[1]) > 0:
-                refCheckUpdateDialogAnswer = refCheckUpdateDialog(refsUpdateCheckerOutput[1])
+                refCheckUpdateDialogAnswer = refCheckUpdateDialog(refsUpdateCheckerOutput[0],refsUpdateCheckerOutput[1])
                 if refCheckUpdateDialogAnswer == "Update by one":
                     cmds.file(refsUpdateCheckerOutput[1][0],lr=refsUpdateCheckerOutput[0][0])
                     updateList.append(refsUpdateCheckerOutput[0][0])
