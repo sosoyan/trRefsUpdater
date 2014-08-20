@@ -7,7 +7,7 @@ check for updates and replace with the new version.
 __author__ = "Vahan Sosoyan"
 __copyright__ = "Copyright 2014, Triada Studio"
 __license__ = "GPL"
-__version__ = "1.5"
+__version__ = "1.6"
 __email__ = "sosoyan@gmail.com"
 
 import maya.cmds as cmds
