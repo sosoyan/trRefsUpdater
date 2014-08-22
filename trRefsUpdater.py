@@ -87,7 +87,7 @@ def refsUpdateChecker(ifLoaded,topRef):
     refFilePaths = []
 
     for i in refList:
-        refFilePaths.append(cmds.referenceQuery(i, f=1, wcn=1))
+        refFilePaths.append(cmds.referenceQuery(i, f=1,wcn=1))
 
     refFileVersionList = []
 
@@ -127,6 +127,7 @@ def refsUpdater(**kwargs):
     ifLoaded = kwargs.setdefault("il",1)
     topRef = kwargs.setdefault("tr",1)
     callBack = kwargs.setdefault("cb",0)
+    loadRefDepth = kwargs.setdefault("lrd","all")
     refsUpdateCheckerOutput = refsUpdateChecker(ifLoaded,topRef)
     updateList = []
     skipList = []
@@ -135,7 +136,7 @@ def refsUpdater(**kwargs):
             if len(refsUpdateCheckerOutput[1]) > 0:
                 refCheckUpdateDialogAnswer = refCheckUpdateDialog(refsUpdateCheckerOutput[0],refsUpdateCheckerOutput[1])
                 if refCheckUpdateDialogAnswer == "Update by one":
-                    cmds.file(refsUpdateCheckerOutput[1][0],lr=refsUpdateCheckerOutput[0][0])
+                    cmds.file(refsUpdateCheckerOutput[1][0],lr=refsUpdateCheckerOutput[0][0],lrd=loadRefDepth)
                     updateList.append(refsUpdateCheckerOutput[0][0])
                     del refsUpdateCheckerOutput[0][0]
                     del refsUpdateCheckerOutput[1][0]
@@ -144,7 +145,7 @@ def refsUpdater(**kwargs):
                     for i in refsUpdateCheckerOutput[0]:
                         updateList.append(i)
                     for i,k in zip(refsUpdateCheckerOutput[0],refsUpdateCheckerOutput[1]):
-                        cmds.file(k,lr=i)
+                        cmds.file(k,lr=i,lrd=loadRefDepth)
                     if len(skipList) == 0:
                         sys.stdout.write("// Info: %s updated."%(", ".join(updateList)))
                     else:
@@ -180,7 +181,7 @@ def refsUpdater(**kwargs):
     mainRefsUpdater(callBack)
 
 def refsUpdaterExe(self):
-    refsUpdater(il=1,tr=1,cb=1)
+    refsUpdater(il=1,tr=1,lrd="topOnly",cb=1)
 
 def refsUpdaterCallback():
     api.MSceneMessage.addCallback(api.MSceneMessage.kAfterOpen, refsUpdaterExe)
