@@ -39,7 +39,7 @@ Custom `il` (isLoaded), `tr`(topReference) and `lrd`(loadReferenceDepth) flags a
 refsUpdater([il=boolean],[tr=boolean],[lrd=string("all","topOnly","none")])
 ```
 
-**NOTE:** By default il=True,tr=True,lrd="topOnly"
+**NOTE:** By default `il=True`, `tr=True`, `lrd="topOnly"`
 
 ###Release Notes
 
