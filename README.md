@@ -33,7 +33,7 @@ import trRefsUpdater
 
 trRefsUpdater.refsUpdater()
 ```
-Custom `il` (isLoaded), `tr`( topReference ) and `lrd` ( loadReferenceDepth ) flags are available to make it best fit in your pipeline.
+Custom `il` ( isLoaded ), `tr` ( topReference ) and `lrd` ( loadReferenceDepth ) flags are available to make it best fit in your pipeline.
 
 ```bash
 refsUpdater([il=boolean],[tr=boolean],[lrd=string("all","topOnly","none")])
