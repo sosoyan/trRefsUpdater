@@ -60,6 +60,10 @@ def refsUpdateChecker(ifLoaded,topRef):
         return diffmap
 
     refSel = cmds.ls(rf=1)
+
+    for i in refSel:
+        if "_UNKNOWN_REF_NODE_" in i:
+            refSel.remove(i)
     
     if ifLoaded==1 and topRef==1:
         refLoaded = []
