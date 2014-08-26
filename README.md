@@ -7,7 +7,7 @@ by Vahan Sosoyan sosoyan@gmail.com
 
 This module helps to iterate through all referenced files in the current maya scene, check for updates and replace with the new versions.
 
-![](https://dl.dropboxusercontent.com/u/11663164/shared/trRefsUpdater_Demo.gif)
+![](https://raw.githubusercontent.com/Sosoyan/trRefsUpdater/master/trRefsUpdater_Demo.gif)
 
 ===
 
