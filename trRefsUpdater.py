@@ -184,7 +184,7 @@ def refsUpdater(**kwargs):
                 cmds.warning("There are no any referenced assets in the current scene.")
     mainRefsUpdater(callBack)
 
-def refsUpdaterExe(self):
+def refsUpdaterExe(*args):
     refsUpdater(il=1,tr=1,lrd="topOnly",cb=1)
 
 def refsUpdaterCallback():
