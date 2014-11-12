@@ -31,7 +31,7 @@ def refCheckUpdateDialog(newVersionsNames,newVersionsList):
     for i in newVersionsNumsList:
         refAssetsString += "%s\n"%i
 
-    return cmds.confirmDialog(title="Check for Updates",
+    return cmds.confirmDialog(title="TRIADA Check for Updates",
                               message="%s new versions of asset references has been found\n\n%s\n%s"
                               %(newVersionsCount,refAssetsString,note),
                               button=["Update by one","Update All","Skip by one", "Cancel"],
@@ -91,14 +91,15 @@ def refsUpdateChecker(ifLoaded,topRef):
     refFilePaths = []
 
     for i in refList:
-        refFilePaths.append(cmds.referenceQuery(i, f=1,wcn=1))
+        refFilePaths.append(cmds.referenceQuery(i, f=1, wcn=1))
 
     refFileVersionList = []
 
     for i in refFilePaths:
         refFileDirList = os.path.abspath(os.path.join(i, os.pardir))
         refFileList = os.path.splitext(os.path.basename(i))[0]
-        refFileName = refFileList[:refFileList.rfind("v")+1]
+        refFileExt = os.path.splitext(os.path.basename(i))[1]
+        refFileName = refFileList[:refFileList.rfind("_v")+2]+"*%s"%refFileExt
         refFileVersionList.append(glob.glob("%s/%s*"%(refFileDirList,refFileName)))
 
     refFileNewVersionPaths=[]
