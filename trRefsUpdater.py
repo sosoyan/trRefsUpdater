@@ -7,7 +7,7 @@ check for updates and replace with the new version.
 __author__ = "Vahan Sosoyan"
 __copyright__ = "Copyright 2014, Triada Studio"
 __license__ = "GPL"
-__version__ = "1.6"
+__version__ = "1.6.1"
 __email__ = "sosoyan@gmail.com"
 
 import maya.cmds as cmds
@@ -132,7 +132,7 @@ def refsUpdater(**kwargs):
     ifLoaded = kwargs.setdefault("il",1)
     topRef = kwargs.setdefault("tr",1)
     callBack = kwargs.setdefault("cb",0)
-    loadRefDepth = kwargs.setdefault("lrd","all")
+    loadRefDepth = kwargs.setdefault("lrd","topOnly")
     refsUpdateCheckerOutput = refsUpdateChecker(ifLoaded,topRef)
     updateList = []
     skipList = []
@@ -179,7 +179,7 @@ def refsUpdater(**kwargs):
                         sys.stdout.write("// Info: %s updated | %s skipped."
                         %((", ".join(updateList)),(", ".join(skipList))))
                 else:
-                        sys.stdout.write("// Info: All assets are up to date.")
+                    sys.stdout.write("// Info: All assets are up to date.")
         else:
             if callBack == 0:
                 cmds.warning("There are no any referenced assets in the current scene.")
