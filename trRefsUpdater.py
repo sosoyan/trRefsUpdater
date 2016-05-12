@@ -8,7 +8,6 @@ __author__ = "Vahan Sosoyan"
 __copyright__ = "Copyright 2014, Triada Studio"
 __license__ = "GPL"
 __version__ = "1.6.1"
-__email__ = "sosoyan@gmail.com"
 
 import maya.cmds as cmds
 import os, glob, sys
