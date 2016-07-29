@@ -1,7 +1,4 @@
 ###trRefsUpdater
-Copyright 2014, Triada Studio
-
-by Vahan Sosoyan sosoyan@gmail.com
 
 ===
 
