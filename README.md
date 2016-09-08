@@ -3,9 +3,6 @@
 ===
 
 This module helps to iterate through all referenced files in the current maya scene, check for updates and replace with the new versions.
-
-![](https://raw.githubusercontent.com/Sosoyan/trRefsUpdater/master/trRefsUpdater_Demo.gif)
-
 ===
 
 ###Installation
@@ -30,24 +27,6 @@ import trRefsUpdater
 
 trRefsUpdater.refsUpdater()
 ```
-Custom `il` ( isLoaded ), `tr` ( topReference ) and `lrd` ( loadReferenceDepth ) flags are available to make it best fit in your pipeline.
-
-```bash
-refsUpdater([il=boolean],[tr=boolean],[lrd=string("all","topOnly","none")])
-```
-
-**NOTE:** By default `il=True`, `tr=True`, `lrd="topOnly"`
-
-###Release Notes
-
-#### 1.6
-
-- Fixed issue with duplicated reference objects
-- Layout improvment of confirm dialog
-
-#### 1.5
-
-- Added better feedback status through script editor for updated or skipped assets
 
 License
 -------
