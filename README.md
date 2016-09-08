@@ -1,10 +1,5 @@
 ###trRefsUpdater
 
-===
-
-This module helps to iterate through all referenced files in the current maya scene, check for updates and replace with the new versions.
-===
-
 ###Installation
 
 Clone this repo into your maya scripts directory, or if you already have userSetup.py, then add this lines above.
