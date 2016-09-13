@@ -14,15 +14,15 @@ import maya.utils as utils
 import os, glob, sys, re
 import maya.OpenMaya as api
 
-class refNode(object):
+class RefNode(object):
     def __init__(self, name, path, isLoaded):
         self.name = name
         self.path = path
         self.isLoaded = isLoaded
         self.fileName = os.path.splitext(os.path.basename(path))[0]
         self.version = re.search(r".v\d+", self.fileName).group()[2:]
-
-        self.updatePath = glob.glob(self.path.replace(self.version, "*"))[-1]
+        
+        self.updatePath = glob.glob(self.path.replace(self.version, "*"))[-1].replace("\\", "/")
         self.updateFileName = os.path.splitext(os.path.basename(self.updatePath))[0]
         self.updateVersion = re.search(r".v\d+", self.updateFileName).group()[2:]
 
@@ -79,7 +79,7 @@ def getRefNodesList():
         # Append only versioned ref nodes
         fileName = os.path.splitext(os.path.basename(path))[0]
         if re.search(r".v\d+", fileName) != None:
-            refNodes.append(refNode(name, path, isLoaded))
+            refNodes.append(RefNode(name, path, isLoaded))
     return refNodes
 
 def refsUpdater(*args):
@@ -125,4 +125,4 @@ def refsUpdater(*args):
         sys.stdout.write("// Info: %s skipped.\n"%(", ".join(skippedList)))
 
 if __name__ != "__main__":
-    api.MSceneMessage.addCallback(api.MSceneMessage.kAfterOpen,  refsUpdater)
+    api.MSceneMessage.addCallback(api.MSceneMessage.kAfterOpen, refsUpdater)
